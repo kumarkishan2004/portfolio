@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kumar Kishan — About</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="about.css">
+</head>
+<body>
+<div id="cur"><div id="cd"></div><div id="cr"></div></div>
+<div class="bg-base"></div>
+<div class="bg-glow a"></div>
+<div class="bg-glow b"></div>
+<div class="bg-txt">ABOUT</div>
+
+<nav>
+  <div class="logo">KK</div>
+  <ul class="nl" id="nl">
+    <li><a href="index.html" onclick="cm()">Home</a></li>
+    <li><a href="about.html" class="active" onclick="cm()">About</a></li>
+    <li><a href="projects.html" onclick="cm()">Projects</a></li>
+    <li><a href="achievements.html" onclick="cm()">Achievements</a></li>
+    <li><a href="contact.html" onclick="cm()">Contact</a></li>
+  </ul>
+  <div class="nt" id="nt" onclick="tm()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page">
+  <div class="page-sup rv">§ 01 — Who I Am</div>
+  <h1 class="page-h1 rv" style="transition-delay:.08s">Engineer by logic,<br><em>storyteller by data.</em></h1>
+
+  <div class="ah">
+    <!-- PHOTO -->
+    <div class="photo-col rvl">
+      <div class="photo-wrap">
+        <div class="deco-a"></div>
+        <div class="deco-b"></div>
+        <div class="photo-frame">
+          <!-- ★ REPLACE src WITH YOUR PHOTO ★ -->
+          <img class="photo-img" id="pImg"
+            src="myphoto.jpeg"
+            alt="Alex Mercer"
+            onerror="this.outerHTML=document.getElementById('phTpl').innerHTML">
+          <template id="phTpl">
+            <div class="ph-ph">
+              <svg viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1'><circle cx='12' cy='8' r='4'/><path d='M4 20c0-4 3.6-7 8-7s8 3 8 7'/></svg>
+              <span>Your Photo Here</span>
+            </div>
+          </template>
+        </div>
+        <div class="nameplate">kumar kishan</div>
+        <div class="photo-yr">KK — 2025</div>
+      </div>
+    </div>
+
+    <!-- BIO -->
+    <div class="bio rvr" style="transition-delay:.12s">
+      <h3>I build the bridge between raw data and real decisions.</h3>
+      <p>With 5+ years across analytics and backend engineering, I've shipped dashboards read by executives, ML models running in production, and APIs handling millions of requests. I care deeply about <strong>code that reads like prose</strong> and <strong>data that tells the truth</strong>.</p>
+      <p>My stack is Python-first — pandas for wrangling, Django for building, PostgreSQL for storing. I've led small teams, mentored juniors, and still get excited debugging a gnarly query at midnight.</p>
+      <p>Outside work: <strong>open-source contributor</strong>, occasional writer on data engineering, and perpetually under-caffeinated person who believes clean architecture is a form of art.</p>
+      <div class="chips">
+        <span class="chip">Python</span><span class="chip">Django</span><span class="chip">Data Analysis</span>
+        <span class="chip">SQL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONALITY -->
+  <div class="sec-t rv">Beyond the code</div>
+  <div class="personality rv" style="transition-delay:.08s;margin-bottom:70px">
+    <div class="pers-card"><div class="pers-icon">🎯</div><div class="pers-label">Problem-First</div><div class="pers-desc">I start from the user problem, not the technology</div></div>
+    <div class="pers-card"><div class="pers-icon">📖</div><div class="pers-label">Always Learning</div><div class="pers-desc">ML papers, architecture posts, system design daily</div></div>
+    <div class="pers-card"><div class="pers-icon">🤝</div><div class="pers-label">Collaborator</div><div class="pers-desc">Best work comes from great teams with shared vision</div></div>
+    <div class="pers-card"><div class="pers-icon">⚡</div><div class="pers-label">Fast Shipper</div><div class="pers-desc">Bias toward action with clean, maintainable output</div></div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="sec-t rv">Technical Skills</div>
+  <div class="sk-grid rv" id="skGrid" style="transition-delay:.1s">
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">Python </span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">SQL </span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">Django </span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">Machine Learning</span><span class="sk-pct">82%</span></div><div class="sk-bar"><div class="sk-fill" data-w="82"></div></div></div>
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">Power BI / Tableau</span><span class="sk-pct">85%</span></div><div class="sk-bar"><div class="sk-fill" data-w="85"></div></div></div>
+    <div class="sk-card"><div class="sk-row"><span class="sk-name">Docker / AWS</span><span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="sec-t rv">Experience</div>
+  <div class="tl rv" style="transition-delay:.1s">
+    <div class="tl-item"><div class="tl-yr">2025 FEB–APR</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">Python Developer(trainee)</div><div class="tl-co">Q-Spider,Bhubaneswar</div></div></div>
+    <div class="tl-item"><div class="tl-yr">2024 SEP–NOV</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">Frontend Developer(Intern/Remote)</div><div class="tl-co">focus softnet,Hydrabad</div></div></div>
+  </div>
+  <!-- educations -->
+   <div class="sec-t rv">Education</div>
+  <div class="tl rv" style="transition-delay:.1s">
+    <div class="tl-item"><div class="tl-yr">2023–Now</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">MCA</div><div class="tl-co">KIIT university,BHUBANESWAR</div></div></div>
+    <div class="tl-item"><div class="tl-yr">2022–25</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">B.sc in Computer Science</div><div class="tl-co">Saraswati degree science college under Utkal university</div></div></div>
+    <div class="tl-item"><div class="tl-yr">2020–22</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">12th Grade(science)</div><div class="tl-co">Gopalpur higher secondary school,balasore (CHSE)</div></div></div>
+    <div class="tl-item"><div class="tl-yr">2019–20</div><div class="tl-spine"></div><div class="tl-body"><div class="tl-role">10th Grade</div><div class="tl-co">Mulkaida High school, Mulkaida (BSE)</div></div></div>
+  </div>
+</div>
+
+<script>
+const CD=document.getElementById('cd'),CR=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+(function loop(){CD.style.cssText=`left:${mx}px;top:${my}px`;rx+=(mx-rx)*.11;ry+=(my-ry)*.11;CR.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop)})();
+function tm(){document.getElementById('nl').classList.toggle('open')}function cm(){document.getElementById('nl').classList.remove('open')}
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('in'),50)})},{threshold:.1});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>obs.observe(el));
+const sbObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll('.sk-fill').forEach(f=>setTimeout(()=>f.style.width=f.dataset.w+'%',300))})},{threshold:.25});
+const sg=document.getElementById('skGrid');if(sg)sbObs.observe(sg);
+</script>
+</body>
+</html>
