@@ -1,117 +1,221 @@
+
+raw
+Projects · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Kumar Kishan — Projects</title>
+<title>kumar kishan — Projects</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Barlow',sans-serif;background:#020c14;color:#eee;cursor:none;overflow-x:hidden;min-height:100vh}
 a{text-decoration:none;color:inherit}
-
+ 
+/* ── CURSOR ── */
 #cur{position:fixed;z-index:9999;pointer-events:none;top:0;left:0}
 #cd{width:8px;height:8px;background:#2ec4b6;border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .2s,height .2s}
 #cr{width:34px;height:34px;border:1.5px solid rgba(46,196,182,.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:.55}
-body.hov #cd{width:12px;height:12px}body.hov #cr{width:54px;height:54px;opacity:1}
-
-/* BG */
-.bg{position:fixed;inset:0;z-index:-2;background:#020c14}
-.bg-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(46,196,182,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(46,196,182,.04) 1px,transparent 1px);background-size:46px 46px;pointer-events:none}
-.bg-glow{position:fixed;z-index:-1;pointer-events:none}
-.bg-glow.a{top:-20%;right:-15%;width:60%;height:90%;background:radial-gradient(ellipse,rgba(46,196,182,.045) 0%,transparent 60%)}
-.bg-glow.b{bottom:-20%;left:-10%;width:50%;height:80%;background:radial-gradient(ellipse,rgba(74,144,217,.04) 0%,transparent 60%)}
-.bg-txt{position:fixed;left:-1%;bottom:-4%;font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(7rem,18vw,18rem);color:rgba(46,196,182,.025);line-height:1;pointer-events:none;user-select:none;z-index:-1}
-
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(2,12,20,.92),transparent);backdrop-filter:blur(12px);border-bottom:1px solid rgba(46,196,182,.07)}
+body.hov #cd{width:12px;height:12px}
+body.hov #cr{width:54px;height:54px;opacity:1}
+ 
+/* ── BACKGROUNDS ── */
+.bg-base{position:fixed;inset:0;z-index:-3;background:#020c14}
+.bg-grid{position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(46,196,182,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(46,196,182,.04) 1px,transparent 1px);
+  background-size:46px 46px}
+.bg-glow-a{position:fixed;top:-25%;right:-15%;width:60%;height:90%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(46,196,182,.045) 0%,transparent 60%)}
+.bg-glow-b{position:fixed;bottom:-20%;left:-10%;width:50%;height:80%;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(74,144,217,.04) 0%,transparent 60%)}
+.bg-txt{position:fixed;left:-1%;bottom:-4%;font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(7rem,18vw,18rem);color:rgba(46,196,182,.025);line-height:1;
+  pointer-events:none;user-select:none;z-index:-1;white-space:nowrap}
+ 
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(to bottom,rgba(2,12,20,.92),transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(46,196,182,.07)}
 .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:3px;color:#2ec4b6}
 .nl{display:flex;gap:36px;list-style:none}
-.nl a{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3);transition:color .3s;position:relative}
+.nl a{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.3);transition:color .3s;position:relative}
 .nl a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:#2ec4b6;transition:width .3s}
-.nl a:hover,.nl a.active{color:#2ec4b6}.nl a:hover::after,.nl a.active::after{width:100%}
+.nl a:hover,.nl a.active{color:#2ec4b6}
+.nl a:hover::after,.nl a.active::after{width:100%}
 .nt{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.nt span{width:22px;height:1.5px;background:#2ec4b6;display:block}
-
-/* PAGE */
+.nt span{width:22px;height:1.5px;background:#2ec4b6;display:block;transition:.3s}
+ 
+/* ── PAGE WRAP ── */
 .page{padding:110px 6% 80px;max-width:1150px;margin:0 auto}
 .page-sup{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:4px;color:#2ec4b6;text-transform:uppercase;margin-bottom:14px}
 .page-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:60px;gap:20px;flex-wrap:wrap}
 .page-h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,5rem);color:#fff;line-height:1}
-.page-meta{font-family:'DM Mono',monospace;font-size:.6rem;color:rgba(46,196,182,.45);letter-spacing:2px;text-align:right;line-height:1.9}
-
-/* FILTER TABS */
+.page-meta{font-family:'DM Mono',monospace;font-size:.6rem;color:rgba(46,196,182,.45);letter-spacing:2px;text-align:right;line-height:2}
+ 
+/* ── FILTER TABS ── */
 .filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
-.ftab{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;padding:9px 18px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:3px;cursor:pointer;transition:all .3s}
+.ftab{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:2px;text-transform:uppercase;
+  padding:9px 18px;color:rgba(255,255,255,.35);background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.07);border-radius:3px;cursor:pointer;transition:all .3s}
 .ftab:hover{color:#2ec4b6;border-color:rgba(46,196,182,.3)}
 .ftab.on{background:rgba(46,196,182,.1);border-color:rgba(46,196,182,.4);color:#2ec4b6}
-
-/* PROJECTS GRID */
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px}
-
-/* CARD */
-.pc{position:relative;background:rgba(255,255,255,.02);border:1px solid rgba(46,196,182,.1);border-radius:6px;padding:26px;overflow:hidden;cursor:pointer;transition:border-color .3s,box-shadow .2s;transform-style:preserve-3d}
-.pc.gold-theme{border-color:rgba(201,168,76,.1)}
-.pc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(46,196,182,.04) 0%,transparent 50%);opacity:0;transition:opacity .4s}
-.pc.gold-theme::before{background:linear-gradient(135deg,rgba(201,168,76,.04) 0%,transparent 50%)}
-.pc:hover{border-color:rgba(46,196,182,.4);box-shadow:0 0 40px rgba(46,196,182,.07),0 20px 50px rgba(0,0,0,.4)}
-.pc.gold-theme:hover{border-color:rgba(201,168,76,.4);box-shadow:0 0 40px rgba(201,168,76,.07),0 20px 50px rgba(0,0,0,.4)}
+ 
+/* ── GRID ── */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:20px}
+ 
+/* ── CARD ── */
+/*
+  KEY FIX: The card itself is position:relative with transform-style:preserve-3d
+  but the .pc-link is a real <a> with high z-index so clicks always register.
+  The card also has a full-cover <a> overlay for whole-card click.
+*/
+.pc{
+  position:relative;
+  background:rgba(255,255,255,.022);
+  border:1px solid rgba(46,196,182,.1);
+  border-radius:8px;
+  padding:28px;
+  overflow:hidden;
+  transition:border-color .3s, box-shadow .2s;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.pc.gold{border-color:rgba(201,168,76,.1)}
+ 
+/* tilt hover border/shadow */
+.pc:hover{
+  border-color:rgba(46,196,182,.45);
+  box-shadow:0 0 40px rgba(46,196,182,.08), 0 24px 60px rgba(0,0,0,.45);
+}
+.pc.gold:hover{
+  border-color:rgba(201,168,76,.45);
+  box-shadow:0 0 40px rgba(201,168,76,.08), 0 24px 60px rgba(0,0,0,.45);
+}
+ 
+/* gradient overlay on hover */
+.pc::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(46,196,182,.05) 0%,transparent 55%);
+  opacity:0;transition:opacity .4s;pointer-events:none;
+}
+.pc.gold::before{background:linear-gradient(135deg,rgba(201,168,76,.05) 0%,transparent 55%)}
 .pc:hover::before{opacity:1}
-.pc-glow{position:absolute;inset:0;background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(46,196,182,.07) 0%,transparent 55%);pointer-events:none;opacity:0;transition:opacity .3s}
-.pc.gold-theme .pc-glow{background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(201,168,76,.07) 0%,transparent 55%)}
+ 
+/* mouse-glow spot */
+.pc-glow{
+  position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(46,196,182,.08) 0%,transparent 55%);
+}
+.pc.gold .pc-glow{background:radial-gradient(circle at var(--px,50%) var(--py,50%),rgba(201,168,76,.08) 0%,transparent 55%)}
 .pc:hover .pc-glow{opacity:1}
-.pc-bar{position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(46,196,182,.65),transparent);opacity:0;transition:opacity .4s}
-.pc.gold-theme .pc-bar{background:linear-gradient(90deg,transparent,rgba(201,168,76,.65),transparent)}
+ 
+/* top accent line */
+.pc-bar{position:absolute;top:0;left:0;right:0;height:2px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(46,196,182,.7),transparent);
+  opacity:0;transition:opacity .4s}
+.pc.gold .pc-bar{background:linear-gradient(90deg,transparent,rgba(201,168,76,.7),transparent)}
 .pc:hover .pc-bar{opacity:1}
+ 
+/* FULL-CARD clickable overlay — sits between glow and content */
+.pc-overlay{
+  position:absolute;inset:0;z-index:1;
+  display:block;cursor:pointer;
+}
+ 
+/* all card content above overlay */
+.pc-content{position:relative;z-index:2}
+ 
 .pc-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px}
-.pc-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;background:rgba(46,196,182,.07);border:1px solid rgba(46,196,182,.14)}
-.pc.gold-theme .pc-icon{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.14)}
-.pc-num{font-family:'DM Mono',monospace;font-size:1.5rem;color:rgba(46,196,182,.07);font-weight:300;line-height:1}
-.pc.gold-theme .pc-num{color:rgba(201,168,76,.07)}
-.pc-cat{display:inline-block;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(46,196,182,.6);border:1px solid rgba(46,196,182,.2);padding:3px 8px;border-radius:2px;margin-bottom:10px}
-.pc.gold-theme .pc-cat{color:rgba(201,168,76,.6);border-color:rgba(201,168,76,.2)}
-.pc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:#fff;margin-bottom:9px;line-height:1.3}
-.pc-desc{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.75;margin-bottom:16px;font-weight:300}
-.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
-.ptag{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:1px;padding:3px 8px;border-radius:3px}
-.ptag.t{border:1px solid rgba(46,196,182,.2);color:rgba(46,196,182,.65);background:rgba(46,196,182,.04)}
-.ptag.g{border:1px solid rgba(201,168,76,.2);color:rgba(201,168,76,.65);background:rgba(201,168,76,.04)}
-.ptag.b{border:1px solid rgba(100,140,255,.2);color:rgba(100,140,255,.65);background:rgba(100,140,255,.04)}
-.ptag.w{border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.28);background:transparent}
-.pc-footer{display:flex;align-items:center;justify-content:space-between}
-.pc-link{font-family:'DM Mono',monospace;font-size:.62rem;color:#2ec4b6;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
-.pc.gold-theme .pc-link{color:#c9a84c}
-.pc-link:hover{gap:11px}
-.pc-status{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:1px;padding:3px 8px;border-radius:2px}
-.pc-status.live{border:1px solid rgba(74,222,128,.2);color:rgba(74,222,128,.65);background:rgba(74,222,128,.04)}
-.pc-status.wip{border:1px solid rgba(255,180,50,.2);color:rgba(255,180,50,.55);background:rgba(255,180,50,.04)}
-
-/* EMPTY STATE */
-.empty{text-align:center;padding:80px 20px;font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.18);letter-spacing:2px;display:none}
-.empty.show{display:block}
-
-/* REVEAL */
+.pc-icon{width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;background:rgba(46,196,182,.08);border:1px solid rgba(46,196,182,.15)}
+.pc.gold .pc-icon{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.15)}
+.pc-num{font-family:'DM Mono',monospace;font-size:1.8rem;color:rgba(46,196,182,.08);font-weight:300;line-height:1}
+.pc.gold .pc-num{color:rgba(201,168,76,.08)}
+ 
+.pc-cat{display:inline-block;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(46,196,182,.65);border:1px solid rgba(46,196,182,.22);
+  padding:3px 9px;border-radius:2px;margin-bottom:11px}
+.pc.gold .pc-cat{color:rgba(201,168,76,.65);border-color:rgba(201,168,76,.22)}
+ 
+.pc-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.97rem;color:#fff;margin-bottom:9px;line-height:1.35}
+.pc-desc{font-size:.81rem;color:rgba(255,255,255,.33);line-height:1.8;margin-bottom:18px;font-weight:300}
+ 
+.pc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+.ptag{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:1px;padding:3px 9px;border-radius:3px}
+.ptag.t{border:1px solid rgba(46,196,182,.2);color:rgba(46,196,182,.7);background:rgba(46,196,182,.04)}
+.ptag.g{border:1px solid rgba(201,168,76,.2);color:rgba(201,168,76,.7);background:rgba(201,168,76,.04)}
+.ptag.b{border:1px solid rgba(100,140,255,.2);color:rgba(100,140,255,.7);background:rgba(100,140,255,.04)}
+.ptag.w{border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);background:transparent}
+ 
+.pc-footer{display:flex;align-items:center;justify-content:space-between;gap:10px}
+ 
+/*
+  THE REAL LINK — z-index:3 keeps it above the overlay so it always captures clicks
+*/
+.pc-link{
+  font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:1px;
+  color:#2ec4b6;display:inline-flex;align-items:center;gap:7px;
+  transition:gap .25s, color .2s;
+  position:relative;z-index:3;          /* always on top */
+  cursor:pointer;
+}
+.pc.gold .pc-link{color:#c9a84c}
+.pc-link:hover{gap:13px}
+.pc-link svg{width:11px;height:11px;flex-shrink:0;transition:transform .25s}
+.pc-link:hover svg{transform:translate(2px,-2px)}
+ 
+.pc-status{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:1px;padding:3px 9px;border-radius:2px;white-space:nowrap}
+.pc-status.live{border:1px solid rgba(74,222,128,.22);color:rgba(74,222,128,.7);background:rgba(74,222,128,.05)}
+.pc-status.wip{border:1px solid rgba(255,180,50,.22);color:rgba(255,180,50,.6);background:rgba(255,180,50,.05)}
+.pc-status.private{border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);background:transparent}
+ 
+/* no-link state */
+.pc-nolink{
+  font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:1px;
+  color:rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:7px;
+  cursor:default;
+}
+ 
+/* hidden panel */
+.hidden{display:none !important}
+ 
+/* ── REVEAL ── */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)}
 .rv.in{opacity:1;transform:none}
-
-/* MOBILE */
+ 
+/* ── MOBILE ── */
 @media(max-width:768px){
   body{cursor:auto}#cur{display:none}
-  .nt{display:flex}.nl{position:fixed;top:0;right:-100%;height:100vh;width:min(270px,80vw);background:rgba(2,12,20,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:flex-start;padding:90px 28px 28px;gap:26px;border-left:1px solid rgba(46,196,182,.1);transition:right .4s;z-index:999}
-  .nl.open{right:0}.nl a{font-size:.9rem;color:rgba(255,255,255,.6)}
+  .nt{display:flex}
+  .nl{position:fixed;top:0;right:-100%;height:100vh;width:min(270px,80vw);
+    background:rgba(2,12,20,.97);backdrop-filter:blur(20px);
+    flex-direction:column;align-items:flex-start;padding:90px 28px 28px;gap:26px;
+    border-left:1px solid rgba(46,196,182,.1);transition:right .4s;z-index:999}
+  .nl.open{right:0}
+  .nl a{font-size:.9rem;color:rgba(255,255,255,.65)}
   .page-header{flex-direction:column;align-items:flex-start}
+  .pc{transform:none !important} /* disable tilt on touch */
 }
-::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(46,196,182,.4);border-radius:2px}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(46,196,182,.4);border-radius:2px}
 </style>
 </head>
 <body>
 <div id="cur"><div id="cd"></div><div id="cr"></div></div>
-<div class="bg"></div>
+<div class="bg-base"></div>
 <div class="bg-grid"></div>
-<div class="bg-glow a"></div><div class="bg-glow b"></div>
+<div class="bg-glow-a"></div>
+<div class="bg-glow-b"></div>
 <div class="bg-txt">WORK</div>
-
-<nav>
+ 
+<!-- NAV -->
+<nav id="nav">
   <div class="logo">KK</div>
   <ul class="nl" id="nl">
     <li><a href="index.html" onclick="cm()">Home</a></li>
@@ -122,121 +226,316 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;display:flex;ali
   </ul>
   <div class="nt" id="nt" onclick="tm()"><span></span><span></span><span></span></div>
 </nav>
-
+ 
 <div class="page">
   <div class="page-sup rv">§ 02 — Selected Work</div>
   <div class="page-header">
     <h1 class="page-h1 rv" style="transition-delay:.08s">Projects</h1>
     <div class="page-meta rv" style="transition-delay:.14s">06 PROJECTS<br>2 CATEGORIES</div>
   </div>
-
+ 
+  <!-- FILTER TABS -->
   <div class="filter-bar rv" style="transition-delay:.18s">
     <button class="ftab on" data-filter="all">All Projects</button>
     <button class="ftab" data-filter="data">📊 Data Analytics</button>
     <button class="ftab" data-filter="backend">⚙️ Backend / Django</button>
   </div>
+ 
 
   <div class="pgrid" id="pgrid">
-
-    <div class="pc gold-theme rv" data-cat="data" style="transition-delay:.05s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">📊</div><div class="pc-num">01</div></div>
-      <div class="pc-cat">Data Analytics</div>
-      <div class="pc-title">Sales Intelligence Dashboard</div>
-      <div class="pc-desc">End-to-end BI pipeline pulling from 5 data sources, processing 2M+ rows/day, powering real-time executive decisions with drill-down capability.</div>
-      <div class="pc-tags"><span class="ptag g">Python</span><span class="ptag g">Power BI</span><span class="ptag w">SQL</span><span class="ptag w">DAX</span><span class="ptag w">ETL</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Case Study →</a><span class="pc-status live">● Live</span></div>
+ 
+    <!-- CARD 1 -->
+    <div class="pc gold rv" data-cat="data" style="transition-delay:.05s">
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <!-- ★ Replace href with your project URL ★ -->
+      <a class="pc-overlay"
+         href="https://your-sales-dashboard.com"
+         target="_blank" rel="noopener noreferrer"
+         title="Open Sales Intelligence Dashboard"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">📊</div>
+          <div class="pc-num">01</div>
+        </div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Sales Intelligence Dashboard</div>
+        <div class="pc-desc">End-to-end BI pipeline pulling from 5 data sources, processing 2M+ rows/day with real-time drill-down capability for executives.</div>
+        <div class="pc-tags">
+          <span class="ptag g">Python</span>
+          <span class="ptag g">Power BI</span>
+          <span class="ptag w">SQL</span>
+          <span class="ptag w">DAX</span>
+          <span class="ptag w">ETL</span>
+        </div>
+        <div class="pc-footer">
+          <!-- ★ Replace href with your project URL ★ -->
+          <a class="pc-link"
+             href="https://your-sales-dashboard.com"
+             target="_blank" rel="noopener noreferrer">
+            View Live Project
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status live">● Live</span>
+        </div>
+      </div>
     </div>
-
-    <div class="pc gold-theme rv" data-cat="data" style="transition-delay:.1s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">🤖</div><div class="pc-num">02</div></div>
-      <div class="pc-cat">Data Analytics</div>
-      <div class="pc-title">Customer Churn Predictor</div>
-      <div class="pc-desc">XGBoost + SHAP model achieving 91% accuracy on telecom churn prediction, integrated with a live scoring API used daily in production.</div>
-      <div class="pc-tags"><span class="ptag g">XGBoost</span><span class="ptag g">SHAP</span><span class="ptag w">scikit-learn</span><span class="ptag w">Flask</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Case Study →</a><span class="pc-status live">● Live</span></div>
+ 
+    <!-- CARD 2 -->
+    <div class="pc gold rv" data-cat="data" style="transition-delay:.1s">
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://your-churn-predictor.com"
+         target="_blank" rel="noopener noreferrer"
+         title="Open Churn Predictor"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">🤖</div>
+          <div class="pc-num">02</div>
+        </div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Customer Churn Predictor</div>
+        <div class="pc-desc">XGBoost + SHAP model achieving 91% accuracy on telecom churn prediction, integrated with a live scoring API used daily in production.</div>
+        <div class="pc-tags">
+          <span class="ptag g">XGBoost</span>
+          <span class="ptag g">SHAP</span>
+          <span class="ptag w">scikit-learn</span>
+          <span class="ptag w">Flask</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://your-churn-predictor.com"
+             target="_blank" rel="noopener noreferrer">
+            View Live Project
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status live">● Live</span>
+        </div>
+      </div>
     </div>
-
-    <div class="pc gold-theme rv" data-cat="data" style="transition-delay:.15s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">📈</div><div class="pc-num">03</div></div>
-      <div class="pc-cat">Data Analytics</div>
-      <div class="pc-title">Financial Anomaly Detector</div>
-      <div class="pc-desc">Isolation Forest model scanning 50K daily transactions for fraud patterns, with auto-flagging and analyst alert pipeline.</div>
-      <div class="pc-tags"><span class="ptag g">Pandas</span><span class="ptag b">Isolation Forest</span><span class="ptag b">Plotly</span><span class="ptag w">Airflow</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Case Study →</a><span class="pc-status live">● Live</span></div>
+ 
+    <!-- CARD 3 -->
+    <div class="pc gold rv" data-cat="data" style="transition-delay:.15s">
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://github.com/alexmercer/anomaly-detector"
+         target="_blank" rel="noopener noreferrer"
+         title="Open on GitHub"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">📈</div>
+          <div class="pc-num">03</div>
+        </div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Financial Anomaly Detector</div>
+        <div class="pc-desc">Isolation Forest model scanning 50K daily transactions for fraud patterns, with auto-flagging and analyst alert pipeline.</div>
+        <div class="pc-tags">
+          <span class="ptag g">Pandas</span>
+          <span class="ptag b">Isolation Forest</span>
+          <span class="ptag b">Plotly</span>
+          <span class="ptag w">Airflow</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://github.com/alexmercer/anomaly-detector"
+             target="_blank" rel="noopener noreferrer">
+            View on GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status live">● Live</span>
+        </div>
+      </div>
     </div>
-
+ 
+    <!-- CARD 4 -->
     <div class="pc rv" data-cat="backend" style="transition-delay:.05s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">🔐</div><div class="pc-num">04</div></div>
-      <div class="pc-cat">Backend / Django</div>
-      <div class="pc-title">Multi-Tenant SaaS Platform</div>
-      <div class="pc-desc">Fully isolated multi-tenant Django app with JWT auth, RBAC, Celery task queues, and Stripe billing — serving 500+ businesses.</div>
-      <div class="pc-tags"><span class="ptag t">Django</span><span class="ptag t">DRF</span><span class="ptag t">Celery</span><span class="ptag b">Redis</span><span class="ptag w">Stripe</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Repo →</a><span class="pc-status live">● Live</span></div>
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://smartfiletoolkit.pythonanywhere.com"
+         target="_blank" rel="noopener noreferrer"
+         title="Open Smart File Toolkit"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">🔐</div>
+          <div class="pc-num">04</div>
+        </div>
+        <div class="pc-cat">Backend / Django</div>
+        <div class="pc-title">Smart File Toolkit</div>
+        <div class="pc-desc">a website for transferring your photos and PDFs into different formats </div>
+        <div class="pc-tags">
+          <span class="ptag t">Django</span>
+          <span class="ptag t">HTML&CSS</span>
+          <span class="ptag t">JS</span>
+          <span class="ptag b">pillow</span>
+          <span class="ptag w">pypdf</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://smartfiletoolkit.pythonanywhere.com"
+             target="_blank" rel="noopener noreferrer">
+            View Live Project
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status live">● Live</span>
+        </div>
+      </div>
     </div>
-
+ 
+    <!-- CARD 5 -->
     <div class="pc rv" data-cat="backend" style="transition-delay:.1s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">⚡</div><div class="pc-num">05</div></div>
-      <div class="pc-cat">Backend / Django</div>
-      <div class="pc-title">Real-Time Analytics API</div>
-      <div class="pc-desc">High-throughput event ingestion handling 10K req/s using Django Channels, WebSockets, and TimescaleDB for time-series data.</div>
-      <div class="pc-tags"><span class="ptag t">Django Channels</span><span class="ptag t">WebSockets</span><span class="ptag b">TimescaleDB</span><span class="ptag b">AWS</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Repo →</a><span class="pc-status live">● Live</span></div>
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://github.com/alexmercer/realtime-analytics-api"
+         target="_blank" rel="noopener noreferrer"
+         title="Open on GitHub"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">⚡</div>
+          <div class="pc-num">05</div>
+        </div>
+        <div class="pc-cat">Backend / Django</div>
+        <div class="pc-title">Real-Time Analytics API</div>
+        <div class="pc-desc">High-throughput event ingestion handling 10K req/s using Django Channels, WebSockets, and TimescaleDB for time-series storage.</div>
+        <div class="pc-tags">
+          <span class="ptag t">Django Channels</span>
+          <span class="ptag t">WebSockets</span>
+          <span class="ptag b">TimescaleDB</span>
+          <span class="ptag b">AWS</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://github.com/alexmercer/realtime-analytics-api"
+             target="_blank" rel="noopener noreferrer">
+            View on GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status live">● Live</span>
+        </div>
+      </div>
     </div>
-
+ 
+    <!-- CARD 6 — Example: no live URL yet (private / WIP) -->
     <div class="pc rv" data-cat="backend" style="transition-delay:.15s">
-      <div class="pc-glow"></div><div class="pc-bar"></div>
-      <div class="pc-head"><div class="pc-icon">🚀</div><div class="pc-num">06</div></div>
-      <div class="pc-cat">Backend / Django</div>
-      <div class="pc-title">E-Commerce Microservices</div>
-      <div class="pc-desc">Decoupled order, inventory and notification services communicating via RabbitMQ, containerised with Docker, deployed on K8s.</div>
-      <div class="pc-tags"><span class="ptag t">Django</span><span class="ptag b">RabbitMQ</span><span class="ptag b">Docker</span><span class="ptag t">Kubernetes</span></div>
-      <div class="pc-footer"><a href="#" class="pc-link">View Repo →</a><span class="pc-status wip">◐ WIP</span></div>
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <!-- No overlay href = card not clickable as a whole -->
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">🚀</div>
+          <div class="pc-num">06</div>
+        </div>
+        <div class="pc-cat">Backend / Django</div>
+        <div class="pc-title">E-Commerce Microservices</div>
+        <div class="pc-desc">Decoupled order, inventory and notification services via RabbitMQ, containerised with Docker and deployed on Kubernetes.</div>
+        <div class="pc-tags">
+          <span class="ptag t">Django</span>
+          <span class="ptag b">RabbitMQ</span>
+          <span class="ptag b">Docker</span>
+          <span class="ptag t">Kubernetes</span>
+        </div>
+        <div class="pc-footer">
+          <!-- No URL yet → use nolink style -->
+          <span class="pc-nolink">
+            🔒 Private Repo
+          </span>
+          <span class="pc-status wip">◐ In Progress</span>
+        </div>
+      </div>
     </div>
-
-  </div>
-  <div class="empty" id="empty">No projects in this category yet.</div>
-</div>
-
+ 
+  </div><!-- /pgrid -->
+</div><!-- /page -->
+ 
 <script>
+/* ── CURSOR ── */
 const CD=document.getElementById('cd'),CR=document.getElementById('cr');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-document.querySelectorAll('a,button,.pc').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
-(function loop(){CD.style.cssText=`left:${mx}px;top:${my}px`;rx+=(mx-rx)*.11;ry+=(my-ry)*.11;CR.style.cssText=`left:${rx}px;top:${ry}px`;requestAnimationFrame(loop)})();
-function tm(){document.getElementById('nl').classList.toggle('open')}function cm(){document.getElementById('nl').classList.remove('open')}
-
-// filter
+document.addEventListener('mousedown',()=>document.body.classList.add('clk'));
+document.addEventListener('mouseup',()=>document.body.classList.remove('clk'));
+document.querySelectorAll('a,button,.pc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+(function loop(){
+  CD.style.cssText=`left:${mx}px;top:${my}px`;
+  rx+=(mx-rx)*.11;ry+=(my-ry)*.11;
+  CR.style.cssText=`left:${rx}px;top:${ry}px`;
+  requestAnimationFrame(loop);
+})();
+ 
+/* ── NAV ── */
+function tm(){document.getElementById('nl').classList.toggle('open')}
+function cm(){document.getElementById('nl').classList.remove('open')}
+ 
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),50)});
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+ 
+/* ── FILTER TABS ── */
 document.querySelectorAll('.ftab').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+    document.querySelectorAll('.ftab').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
     const f=btn.dataset.filter;
-    document.querySelectorAll('.pc').forEach(c=>{
-      const show=f==='all'||c.dataset.cat===f;
-      c.style.display=show?'':'none';
+    document.querySelectorAll('.pc').forEach(card=>{
+      const show = f==='all' || card.dataset.cat===f;
+      card.style.display = show ? '' : 'none';
     });
-    document.getElementById('empty').classList.toggle('show',f!=='all'&&document.querySelectorAll(`.pc[data-cat="${f}"]`).length===0);
   });
 });
-
-// tilt
-document.querySelectorAll('.pc').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(800px) rotateY(${x*9}deg) rotateX(${-y*9}deg) scale(1.02)`;
-    const g=card.querySelector('.pc-glow');
-    if(g){g.style.setProperty('--px',(x+.5)*100+'%');g.style.setProperty('--py',(y+.5)*100+'%')}
+ 
+/* ── 3D CARD TILT ──
+   Critical: we only apply transform on the card DIV itself.
+   The .pc-overlay and .pc-link anchors sit above via z-index,
+   so pointer events on links are NEVER blocked.
+   On mobile we skip tilt entirely (CSS: .pc { transform:none !important })
+── */
+const isMobile = window.matchMedia('(max-width:768px)').matches;
+ 
+if(!isMobile){
+  document.querySelectorAll('.pc').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width - 0.5;
+      const y=(e.clientY-r.top)/r.height - 0.5;
+      // Apply tilt to the card wrapper, NOT to child links
+      card.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg) scale3d(1.02,1.02,1.02)`;
+      // Update glow position
+      const g=card.querySelector('.pc-glow');
+      if(g){
+        g.style.setProperty('--px',(x+.5)*100+'%');
+        g.style.setProperty('--py',(y+.5)*100+'%');
+      }
+    });
+    card.addEventListener('mouseleave',()=>{
+      // Smooth reset
+      card.style.transition='transform .4s cubic-bezier(.25,.46,.45,.94), border-color .3s, box-shadow .2s';
+      card.style.transform='perspective(900px) rotateY(0deg) rotateX(0deg) scale3d(1,1,1)';
+      setTimeout(()=>card.style.transition='',420);
+    });
+    // On mouseenter re-enable fast response
+    card.addEventListener('mouseenter',()=>{
+      card.style.transition='border-color .3s, box-shadow .2s';
+    });
   });
-  card.addEventListener('mouseleave',()=>card.style.transform='');
-});
-
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('in'),50)})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 </script>
 </body>
 </html>
