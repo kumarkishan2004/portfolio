@@ -85,6 +85,8 @@ function unlock() {
   window.removeEventListener('touchend', unlock);
   window.removeEventListener('click', unlock);
   window.removeEventListener('animationstart', unlock);
+  window.addEventListener('mousemove', unlock);
+  window.addEventListener('mouseenter', unlock);
 }
 
 window.addEventListener('wheel', unlock);
@@ -93,6 +95,8 @@ window.addEventListener('touchstart', unlock);
 window.addEventListener('touchend', unlock);
 window.addEventListener('click', unlock);
 window.addEventListener('animationstart', unlock);
+window.addEventListener('mousemove', unlock);
+window.addEventListener('mouseenter', unlock);
 
 document.addEventListener('visibilitychange', () => {
   document.hidden ? bgVid.pause() : bgVid.play();
