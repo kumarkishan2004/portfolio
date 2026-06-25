@@ -8,6 +8,16 @@
 </head>
 <body>
 <div id="cur"><div id="cd"></div><div id="cr"></div></div>
+<!-- VIDEO BACKGROUND -->
+<div class="vid-bg">
+  <video id="bgVid" autoplay muted loop playsinline preload="auto">
+    <!-- ★ Change filename to match your video file ★ -->
+    <source src="introduction.mp4" type="video/mp4">
+  </video>
+  <div class="vid-overlay"></div>
+  <div class="vid-vignette"></div>
+</div>
+
 <div class="grid-ov"></div>
 <canvas id="cv"></canvas>
 
@@ -17,7 +27,6 @@
     <li><a href="index.html" class="active" onclick="cm()">Home</a></li>
     <li><a href="about.html" onclick="cm()">About</a></li>
     <li><a href="projects.html" onclick="cm()">Projects</a></li>
-    <li><a href="achievements.html" onclick="cm()">Achievements</a></li>
     <li><a href="contact.html" onclick="cm()">Contact</a></li>
   </ul>
   <div class="nt" id="nt" onclick="tm()"><span></span><span></span><span></span></div>
@@ -26,12 +35,6 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="h-eyebrow">Wellcome to my &mdash; World</div>
-    <h1 class="h-name">
-      <span class="n1">Kumar</span>
-      <span class="n2">Kishan</span>
-    </h1>
-    <p class="h-sub"><strong>Data Analyst</strong> &amp; <strong>Backend Engineer</strong> &mdash; <em>systems that think</em></p>
-    <p class="h-desc">I architect data pipelines that surface truth, and Django backends that scale without breaking. 5 years of turning raw complexity into elegant clarity.</p>
     <div class="h-ctas">
       <a href="about.html" class="bg">about me</a>
       <a href="contact.html" class="bo">Get In Touch</a>
@@ -40,7 +43,7 @@
 </div>
 
 <div class="h-side">
-  <div><div class="stat-n">2+</div><div class="stat-l">Years</div></div>
+  <div><div class="stat-n">4+</div><div class="stat-l">Years</div></div>
   <div class="stat-div"></div>
   <div><div class="stat-n">5+</div><div class="stat-l">Projects</div></div>
   <div class="stat-div"></div>
@@ -64,6 +67,42 @@ document.querySelectorAll('a,button').forEach(el=>{
 function tm(){document.getElementById('nl').classList.toggle('open')}
 function cm(){document.getElementById('nl').classList.remove('open')}
 
+const bgVid = document.getElementById('bgVid');
+bgVid.muted = true;
+bgVid.play();
+
+let unlocked = false;
+
+function unlock() {
+  if (unlocked) return;
+  unlocked = true;
+  bgVid.muted = false;
+  bgVid.volume = 1.0;
+  bgVid.play();
+  window.removeEventListener('wheel', unlock);
+  window.removeEventListener('touchmove', unlock);
+  window.removeEventListener('touchstart', unlock);
+  window.removeEventListener('touchend', unlock);
+  window.removeEventListener('click', unlock);
+  window.removeEventListener('animationstart', unlock);
+}
+
+window.addEventListener('wheel', unlock);
+window.addEventListener('touchmove', unlock);
+window.addEventListener('touchstart', unlock);
+window.addEventListener('touchend', unlock);
+window.addEventListener('click', unlock);
+window.addEventListener('animationstart', unlock);
+
+document.addEventListener('visibilitychange', () => {
+  document.hidden ? bgVid.pause() : bgVid.play();
+});
+
+// Hide video block if file fails to load
+bgVid.addEventListener('error', () => {
+  document.querySelector('.vid-bg').style.display = 'none';
+});
+
 // stars
 (function(){
   const cv=document.getElementById('cv'),c=cv.getContext('2d');
@@ -86,6 +125,8 @@ function cm(){document.getElementById('nl').classList.remove('open')}
   function conn(){for(let i=0;i<stars.length;i++)for(let j=i+1;j<stars.length;j++){const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){c.beginPath();c.moveTo(stars[i].x,stars[i].y);c.lineTo(stars[j].x,stars[j].y);c.strokeStyle=`rgba(201,168,76,${(1-d/90)*.055})`;c.lineWidth=.5;c.stroke()}}}
   (function loop(){c.clearRect(0,0,W,H);conn();stars.forEach(s=>{s.go();s.draw()});requestAnimationFrame(loop)})();
 })();
+
+
 </script>
 </body>
 </html>

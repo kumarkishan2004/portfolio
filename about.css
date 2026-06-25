@@ -133,3 +133,5 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;display:flex;ali
   .ah{grid-template-columns:1fr}.photo-col{width:min(200px,55vw);margin:0 auto 20px}
 }
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(192,96,112,.4);border-radius:2px}
+
+
