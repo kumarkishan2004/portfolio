@@ -7,10 +7,22 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="intro" id="intro">
+  <div class="intro-btn-wrap" id="introWrap">
+    <div class="intro-ring"></div>
+    <div class="intro-ring"></div>
+    <div class="intro-ring"></div>
+    <div class="intro-ring"></div>
+    <div class="intro-ring"></div>
+    <div class="blast-ring"></div>
+    <button class="intro-btn" id="introBtn">KK</button>
+  </div>
+  <p class="intro-hint">Click to enter</p>
+</div>
 <div id="cur"><div id="cd"></div><div id="cr"></div></div>
 <!-- VIDEO BACKGROUND -->
 <div class="vid-bg">
-  <video id="bgVid" autoplay muted loop playsinline preload="auto">
+  <video id="bgVid" muted loop playsinline preload="auto">
     <!-- ★ Change filename to match your video file ★ -->
     <source src="introduction.mp4" type="video/mp4">
   </video>
@@ -69,34 +81,30 @@ function cm(){document.getElementById('nl').classList.remove('open')}
 
 const bgVid = document.getElementById('bgVid');
 bgVid.muted = true;
-bgVid.play();
 
-let unlocked = false;
+const intro = document.getElementById('intro');
+const introBtn = document.getElementById('introBtn');
 
-function unlock() {
-  if (unlocked) return;
-  unlocked = true;
-  bgVid.muted = false;
-  bgVid.volume = 1.0;
-  bgVid.play();
-  window.removeEventListener('wheel', unlock);
-  window.removeEventListener('touchmove', unlock);
-  window.removeEventListener('touchstart', unlock);
-  window.removeEventListener('touchend', unlock);
-  window.removeEventListener('click', unlock);
-  window.removeEventListener('animationstart', unlock);
-  window.addEventListener('mousemove', unlock);
-  window.addEventListener('mouseenter', unlock);
+let entered = false;
+
+function enterSite() {
+  if (entered) return;
+  entered = true;
+  const wrap = document.getElementById('introWrap');
+  wrap.classList.add('blast');
+  if (typeof introBurst === 'function') introBurst();
+  setTimeout(() => {
+    intro.classList.add('hide');
+    bgVid.muted = false;
+    bgVid.volume = 1.0;
+    bgVid.play();
+  }, 400);
 }
 
-window.addEventListener('wheel', unlock);
-window.addEventListener('touchmove', unlock);
-window.addEventListener('touchstart', unlock);
-window.addEventListener('touchend', unlock);
-window.addEventListener('click', unlock);
-window.addEventListener('animationstart', unlock);
-window.addEventListener('mousemove', unlock);
-window.addEventListener('mouseenter', unlock);
+introBtn.addEventListener('click', enterSite);
+introBtn.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enterSite(); }
+});
 
 document.addEventListener('visibilitychange', () => {
   document.hidden ? bgVid.pause() : bgVid.play();
@@ -108,6 +116,7 @@ bgVid.addEventListener('error', () => {
 });
 
 // stars
+let introBurst = null;
 (function(){
   const cv=document.getElementById('cv'),c=cv.getContext('2d');
   let W,H,stars=[],M={x:null,y:null};
@@ -128,6 +137,8 @@ bgVid.addEventListener('error', () => {
   init();
   function conn(){for(let i=0;i<stars.length;i++)for(let j=i+1;j<stars.length;j++){const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){c.beginPath();c.moveTo(stars[i].x,stars[i].y);c.lineTo(stars[j].x,stars[j].y);c.strokeStyle=`rgba(201,168,76,${(1-d/90)*.055})`;c.lineWidth=.5;c.stroke()}}}
   (function loop(){c.clearRect(0,0,W,H);conn();stars.forEach(s=>{s.go();s.draw()});requestAnimationFrame(loop)})();
+  function burst(){const cx=W/2,cy=H/2;stars.forEach(s=>{const dx=s.x-cx,dy=s.y-cy,angle=Math.atan2(dy,dx);s.a=angle;s.x+=Math.cos(angle)*(10+Math.random()*20);s.y+=Math.sin(angle)*(10+Math.random()*20);s.sp+=Math.random()*.8});setTimeout(()=>{stars.forEach(s=>{s.sp=Math.random()*.2+.07})},2200)}
+  introBurst=burst;
 })();
 
 
