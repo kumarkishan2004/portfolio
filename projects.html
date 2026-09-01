@@ -236,43 +236,39 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
   <!-- FILTER TABS -->
   <div class="filter-bar rv" style="transition-delay:.18s">
     <button class="ftab on" data-filter="all">All Projects</button>
-    <button class="ftab" data-filter="data">📊 Data Analytics</button>
     <button class="ftab" data-filter="backend">⚙️ Backend / Django</button>
+    <button class="ftab" data-filter="data">📊 Data Analytics</button>
+    
   </div>
  
 
   <div class="pgrid" id="pgrid">
  
     <!-- CARD 1 -->
-    <div class="pc gold rv" data-cat="data" style="transition-delay:.05s">
+    <div class="pc rv" data-cat="backend" style="transition-delay:.15s">
       <div class="pc-glow"></div>
       <div class="pc-bar"></div>
-      <!-- ★ Replace href with your project URL ★ -->
-      <a class="pc-overlay"
-         href="https://your-sales-dashboard.com"
-         target="_blank" rel="noopener noreferrer"
-         title="Open Sales Intelligence Dashboard"></a>
+      <!-- No overlay href = card not clickable as a whole -->
       <div class="pc-content">
         <div class="pc-head">
-          <div class="pc-icon">📊</div>
+          <div class="pc-icon">🚀</div>
           <div class="pc-num">01</div>
         </div>
-        <div class="pc-cat">Data Analytics</div>
-        <div class="pc-title">Sales Intelligence Dashboard</div>
-        <div class="pc-desc">End-to-end BI pipeline pulling from 5 data sources, processing 2M+ rows/day with real-time drill-down capability for executives.</div>
+        <div class="pc-cat">Backend / Django</div>
+        <div class="pc-title">Cladly E-Commerce </div>
+        <div class="pc-desc">Decoupled order, automatic smtp for email,full custom admin panel, containerised with Docker and deployed on VPS.</div>
         <div class="pc-tags">
-          <span class="ptag g">Python</span>
-          <span class="ptag g">Power BI</span>
-          <span class="ptag w">SQL</span>
-          <span class="ptag w">DAX</span>
-          <span class="ptag w">ETL</span>
+          <span class="ptag t">Django</span>
+          <span class="ptag b">html & css</span>
+          <span class="ptag b">javascript</span>
+          <span class="ptag t">DRF</span>
+          <span class="ptag t">postgresql</span>
         </div>
         <div class="pc-footer">
-          <!-- ★ Replace href with your project URL ★ -->
           <a class="pc-link"
-             href="https://your-sales-dashboard.com"
+             href="https://cladly.in"
              target="_blank" rel="noopener noreferrer">
-            View Live Project
+            View on Website
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M2 10L10 2M10 2H5M10 2v5"/>
             </svg>
@@ -283,80 +279,8 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
     </div>
  
     <!-- CARD 2 -->
-    <div class="pc gold rv" data-cat="data" style="transition-delay:.1s">
-      <div class="pc-glow"></div>
-      <div class="pc-bar"></div>
-      <a class="pc-overlay"
-         href="https://your-churn-predictor.com"
-         target="_blank" rel="noopener noreferrer"
-         title="Open Churn Predictor"></a>
-      <div class="pc-content">
-        <div class="pc-head">
-          <div class="pc-icon">🤖</div>
-          <div class="pc-num">02</div>
-        </div>
-        <div class="pc-cat">Data Analytics</div>
-        <div class="pc-title">Customer Churn Predictor</div>
-        <div class="pc-desc">XGBoost + SHAP model achieving 91% accuracy on telecom churn prediction, integrated with a live scoring API used daily in production.</div>
-        <div class="pc-tags">
-          <span class="ptag g">XGBoost</span>
-          <span class="ptag g">SHAP</span>
-          <span class="ptag w">scikit-learn</span>
-          <span class="ptag w">Flask</span>
-        </div>
-        <div class="pc-footer">
-          <a class="pc-link"
-             href="https://your-churn-predictor.com"
-             target="_blank" rel="noopener noreferrer">
-            View Live Project
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M2 10L10 2M10 2H5M10 2v5"/>
-            </svg>
-          </a>
-          <span class="pc-status live">● Live</span>
-        </div>
-      </div>
-    </div>
- 
-    <!-- CARD 3 -->
-    <div class="pc gold rv" data-cat="data" style="transition-delay:.15s">
-      <div class="pc-glow"></div>
-      <div class="pc-bar"></div>
-      <a class="pc-overlay"
-         href="https://github.com/alexmercer/anomaly-detector"
-         target="_blank" rel="noopener noreferrer"
-         title="Open on GitHub"></a>
-      <div class="pc-content">
-        <div class="pc-head">
-          <div class="pc-icon">📈</div>
-          <div class="pc-num">03</div>
-        </div>
-        <div class="pc-cat">Data Analytics</div>
-        <div class="pc-title">Financial Anomaly Detector</div>
-        <div class="pc-desc">Isolation Forest model scanning 50K daily transactions for fraud patterns, with auto-flagging and analyst alert pipeline.</div>
-        <div class="pc-tags">
-          <span class="ptag g">Pandas</span>
-          <span class="ptag b">Isolation Forest</span>
-          <span class="ptag b">Plotly</span>
-          <span class="ptag w">Airflow</span>
-        </div>
-        <div class="pc-footer">
-          <a class="pc-link"
-             href="https://github.com/alexmercer/anomaly-detector"
-             target="_blank" rel="noopener noreferrer">
-            View on GitHub
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M2 10L10 2M10 2H5M10 2v5"/>
-            </svg>
-          </a>
-          <span class="pc-status live">● Live</span>
-        </div>
-      </div>
-    </div>
- 
-    <!-- CARD 4 -->
-    <div class="pc rv" data-cat="backend" style="transition-delay:.05s">
-      <div class="pc-glow"></div>
+     <div class="pc rv" data-cat="backend" style="transition-delay:.05s">
+      <div class="pc-glow"></div> 
       <div class="pc-bar"></div>
       <a class="pc-overlay"
          href="https://smartfiletoolkit.pythonanywhere.com"
@@ -365,7 +289,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
       <div class="pc-content">
         <div class="pc-head">
           <div class="pc-icon">🔐</div>
-          <div class="pc-num">04</div>
+          <div class="pc-num">02</div>
         </div>
         <div class="pc-cat">Backend / Django</div>
         <div class="pc-title">Smart File Toolkit</div>
@@ -390,8 +314,9 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
         </div>
       </div>
     </div>
- 
-    <!-- CARD 5 -->
+   
+    <!-- CARD 3 -->
+     
     <div class="pc rv" data-cat="backend" style="transition-delay:.1s">
       <div class="pc-glow"></div>
       <div class="pc-bar"></div>
@@ -402,7 +327,7 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
       <div class="pc-content">
         <div class="pc-head">
           <div class="pc-icon">⚡</div>
-          <div class="pc-num">05</div>
+          <div class="pc-num">03</div>
         </div>
         <div class="pc-cat">Backend / Django</div>
         <div class="pc-title">ResumeIQ-AI</div>
@@ -428,39 +353,120 @@ nav{position:fixed;top:0;width:100%;z-index:100;padding:22px 6%;
       </div>
     </div>
  
-    <!-- CARD 6 — Example: no live URL yet (private / WIP) -->
-    <div class="pc rv" data-cat="backend" style="transition-delay:.15s">
+    <!-- CARD 4 -->
+     <div class="pc gold rv" data-cat="data" style="transition-delay:.05s">
       <div class="pc-glow"></div>
       <div class="pc-bar"></div>
-      <!-- No overlay href = card not clickable as a whole -->
+      <!-- ★ Replace href with your project URL ★ -->
+      <a class="pc-overlay"
+         href="https://your-sales-dashboard.com"
+         target="_blank" rel="noopener noreferrer"
+         title="Open Sales Intelligence Dashboard"></a>
       <div class="pc-content">
         <div class="pc-head">
-          <div class="pc-icon">🚀</div>
-          <div class="pc-num">06</div>
+          <div class="pc-icon">📊</div>
+          <div class="pc-num">04</div>
         </div>
-        <div class="pc-cat">Backend / Django</div>
-        <div class="pc-title">Cladly E-Commerce </div>
-        <div class="pc-desc">Decoupled order, automatic smtp for email,full custom admin panel, containerised with Docker and deployed on VPS.</div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Sales Intelligence Dashboard</div>
+        <div class="pc-desc">End-to-end BI pipeline pulling from 5 data sources, processing 2M+ rows/day with real-time drill-down capability for executives.</div>
         <div class="pc-tags">
-          <span class="ptag t">Django</span>
-          <span class="ptag b">html & css</span>
-          <span class="ptag b">javascript</span>
-          <span class="ptag t">DRF</span>
-          <span class="ptag t">postgresql</span>
+          <span class="ptag g">Python</span>
+          <span class="ptag g">Power BI</span>
+          <span class="ptag w">SQL</span>
+          <span class="ptag w">DAX</span>
+          <span class="ptag w">ETL</span>
         </div>
         <div class="pc-footer">
+          <!-- ★ Replace href with your project URL ★ -->
           <a class="pc-link"
-             href="https://cladly.in"
+             href="https://your-sales-dashboard.com"
              target="_blank" rel="noopener noreferrer">
-            View on Website
+            View Live Project
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
               <path d="M2 10L10 2M10 2H5M10 2v5"/>
             </svg>
           </a>
-          <span class="pc-status live">● Live</span>
+          <span class="pc-status wip">● wip</span>
         </div>
       </div>
     </div>
+    
+ 
+    <!-- CARD 5 -->
+    <div class="pc gold rv" data-cat="data" style="transition-delay:.15s">
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://github.com/alexmercer/anomaly-detector"
+         target="_blank" rel="noopener noreferrer"
+         title="Open on GitHub"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">📈</div>
+          <div class="pc-num">05</div>
+        </div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Financial Anomaly Detector</div>
+        <div class="pc-desc">Isolation Forest model scanning 50K daily transactions for fraud patterns, with auto-flagging and analyst alert pipeline.</div>
+        <div class="pc-tags">
+          <span class="ptag g">Pandas</span>
+          <span class="ptag b">Isolation Forest</span>
+          <span class="ptag b">Plotly</span>
+          <span class="ptag w">Airflow</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://github.com/alexmercer/anomaly-detector"
+             target="_blank" rel="noopener noreferrer">
+            View on GitHub
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status wip">● wip</span>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- CARD 6 — Example: no live URL yet (private / WIP) --> 
+    <div class="pc gold rv" data-cat="data" style="transition-delay:.1s">
+      <div class="pc-glow"></div>
+      <div class="pc-bar"></div>
+      <a class="pc-overlay"
+         href="https://your-churn-predictor.com"
+         target="_blank" rel="noopener noreferrer"
+         title="Open Churn Predictor"></a>
+      <div class="pc-content">
+        <div class="pc-head">
+          <div class="pc-icon">🤖</div>
+          <div class="pc-num">06</div>
+        </div>
+        <div class="pc-cat">Data Analytics</div>
+        <div class="pc-title">Customer Churn Predictor</div>
+        <div class="pc-desc">XGBoost + SHAP model achieving 91% accuracy on telecom churn prediction, integrated with a live scoring API used daily in production.</div>
+        <div class="pc-tags">
+          <span class="ptag g">XGBoost</span>
+          <span class="ptag g">SHAP</span>
+          <span class="ptag w">scikit-learn</span>
+          <span class="ptag w">Flask</span>
+        </div>
+        <div class="pc-footer">
+          <a class="pc-link"
+             href="https://your-churn-predictor.com"
+             target="_blank" rel="noopener noreferrer">
+            View Live Project
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M2 10L10 2M10 2H5M10 2v5"/>
+            </svg>
+          </a>
+          <span class="pc-status private">● private</span>
+        </div>
+      </div>
+    </div>
+ 
+  
+    
  
   </div><!-- /pgrid -->
 </div><!-- /page -->
